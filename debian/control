@@ -1,0 +1,11 @@
+Source: wildfly
+Maintainer: Cory Wright <cwright@iland.com>
+Standards-Version: 3.9.5
+Build-Depends: debhelper (>=9)
+
+Package: wildfly
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Wildfly Application Server
+ WildFly is a flexible, lightweight, managed application runtime that helps
+ you build amazing applications.

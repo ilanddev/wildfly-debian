@@ -1,0 +1,11 @@
+appclient  opt/wildfly/
+bin  opt/wildfly/
+docs  opt/wildfly/
+domain  opt/wildfly/
+modules  opt/wildfly/
+standalone  opt/wildfly/
+welcome-content  opt/wildfly/
+LICENSE.txt  opt/wildfly/
+README.txt  opt/wildfly/
+copyright.txt  opt/wildfly/
+jboss-modules.jar  opt/wildfly/
