@@ -9,3 +9,4 @@ Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Wildfly Application Server
  WildFly is a flexible, lightweight, managed application runtime that helps
  you build amazing applications.
+ .

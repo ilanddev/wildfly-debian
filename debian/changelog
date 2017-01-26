@@ -1,9 +1,0 @@
-wildfly (10.1.0.Final) trusty; urgency=medium
-
-  * Release of Wildfly 10.1.0.Final:
-   - Out of the box HTTP/2 support with no JVM flags required
-   - TLS cert auto-generation
-   - Load-balancing profile is now in our default domain.xml config
-   - Support for clustering node discovery on Azure (jgroups AZURE_PING)
-
- -- Cory Wright <cwright@iland.com>  Wed, 25 Jan 2017 19:46:13 +0000
