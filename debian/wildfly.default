@@ -1,0 +1,13 @@
+## Variables that can be set for use in the init script
+
+#JAVA_HOME=
+#JAVA=
+#JBOSS_HOME=
+#JBOSS_USER=
+#JBOSS_MODE=
+#JBOSS_CONFIG=
+#JBOSS_DOMAIN_CONFIG=
+#JBOSS_HOST_CONFIG=
+#STARTUP_WAIT=
+#SHUTDOWN_WAIT=
+#JBOSS_CONSOLE_LOG=

@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+if [ -x "/etc/init.d/wildfly" ] || [ -e "/etc/init/wildfly.conf" ]; then
+        invoke-rc.d wildfly stop || exit $?
+fi

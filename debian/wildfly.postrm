@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+if which deluser >/dev/null 2>&1; then
+        deluser --quiet wildfly > /dev/null || true
+fi
