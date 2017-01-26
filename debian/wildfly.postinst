@@ -2,7 +2,7 @@
 set -e
 
 if ! getent passwd wildfly >/dev/null; then
-        adduser --quiet --system --no-create-home --home /opt/wildfly --shell /usr/sbin/nologin wildfly
+        adduser --quiet --system --no-create-home --home /opt/wildfly --shell /usr/sbin/nologin --group wildfly
 fi
 
 if [ -x "/etc/init.d/wildfly" ] || [ -e "/etc/init/wildfly.conf" ]; then
