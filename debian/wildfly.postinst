@@ -5,6 +5,8 @@ if ! getent passwd wildfly >/dev/null; then
         adduser --quiet --system --no-create-home --home /opt/wildfly --shell /usr/sbin/nologin --group wildfly
 fi
 
+chown -R wildfly:wildfly /opt/wildfly
+
 if [ -x "/etc/init.d/wildfly" ] || [ -e "/etc/init/wildfly.conf" ]; then
         if [ ! -e "/etc/init/wildfly.conf" ]; then
                 update-rc.d wildfly defaults >/dev/null
