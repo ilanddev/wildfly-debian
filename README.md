@@ -23,15 +23,50 @@ This will build the most recently released "Final" version of Wildfly.
 
 All generated files, including the `.deb` file, will be placed in the current directory:
 
-    drwxr-xr-x 11 root root      4096 Dec 21 19:44 wildfly-10.1.0.Final
-    -rw-r--r--  1 root root 134396816 Jan 25 20:09 wildfly_10.1.0.Final_all.deb
-    -rw-r--r--  1 root root      1724 Jan 25 20:09 wildfly_10.1.0.Final_amd64.changes
-    -rw-r--r--  1 root root       875 Jan 25 20:07 wildfly_10.1.0.Final.debian.tar.gz
-    -rw-r--r--  1 root root       811 Jan 25 20:07 wildfly_10.1.0.Final.dsc
-    lrwxrwxrwx  1 root root        27 Jan 25 20:07 wildfly_10.1.0.Final.orig.tar.gz -> wildfly-10.1.0.Final.tar.gz
-    -rw-r--r--  1 root root 139025162 Aug 19 00:27 wildfly-10.1.0.Final.tar.gz
+    -rw-r--r--  1 root root 134398972 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916_all.deb
+    -rw-r--r--  1 root root      2216 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916_amd64.changes
+    -rw-r--r--  1 root root      3467 Jan 27 16:52 wildfly_10.1.0.Final-0~ppa1485535916.debian.tar.gz
+    -rw-r--r--  1 root root      1431 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916.dsc
+    -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly_10.1.0.Final.orig.tar.gz
+    -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly-10.1.0.Final.tar.gz
+
+## Building Sources for Ubuntu PPAs
+
+Set a `PGP_KEY` environment variable or pass it on the command line to `make` as `gpg=`, then use the `prepare-source` target:
+
+    export GPG_KEY="7F5C3FB3"
+    make prepare-source
+
+or
+
+    make prepare-source gpg=7F5C3FB3
+
+The generated files will be in the current directory:
+
+    [...]
+    Now signing changes and any dsc files...
+     signfile wildfly_10.1.0.Final-0~ppa1485535653.dsc 7F5C3FB3
+
+     signfile wildfly_10.1.0.Final-0~ppa1485535653_source.changes 7F5C3FB3
+
+    Successfully signed dsc and changes files
 
 ## Building with Custom Options
+
+### Signing with a GPG key
+
+To sign the local packages with your GPG key:
+
+    make gpg=7F5C3FB3
+
+or
+
+    GPG_KEY="7F5C3FB3" make
+
+or
+
+    export GPG_KEY="7F5C3FB3"
+    make
 
 ### Specifying a version
 
@@ -83,6 +118,7 @@ All of these configuration options can be maintained in a file that sets the env
     WF_VERSION="8.0.0.Final"
     DEBFULLNAME="Your Name"
     DEBEMAIL="youremail@example.com"
+    GPG_KEY="7F5C3FB3"
     set +a
 
 The `set -a` line enables auto-exporting of any variables that follow, and the `set +a` at the end disables that.
