@@ -34,12 +34,12 @@ All generated files, including the `.deb` file, will be placed in the current di
 
 Set a `PGP_KEY` environment variable or pass it on the command line to `make` as `gpg=`, then use the `source` target:
 
-    export GPG_KEY="7F5C3FB3"
-    make source
+    make source gpg=7F5C3FB3
 
 or
 
-    make source gpg=7F5C3FB3
+    export GPG_KEY="7F5C3FB3"
+    make source
 
 The generated files will be in the current directory:
 
@@ -61,10 +61,6 @@ To sign the local packages with your GPG key:
 
 or
 
-    GPG_KEY="7F5C3FB3" make
-
-or
-
     export GPG_KEY="7F5C3FB3"
     make
 
@@ -73,10 +69,6 @@ or
 To build a different version, you can either pass the version as a Makefile parameter or use environment variables:
 
     make version=8.0.0.Final
-
-or
-
-    WF_VERSION=8.0.0.Final make
 
 or
 
@@ -90,10 +82,6 @@ The `version` command line parameter takes precendence over the `WF_VERSION` env
 By default the Makefile will build a debian package for the distribution of the build system. To override this you can:
 
     make distribution=trusty
-
-or
-
-    WF_DISTRIBUTION=trusty make
 
 or
 
