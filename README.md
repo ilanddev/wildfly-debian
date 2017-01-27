@@ -51,6 +51,8 @@ The generated files will be in the current directory:
 
     Successfully signed dsc and changes files
 
+The `.changes` file can now be uploaded to Launchpad using `dput`.
+
 ## Building with Custom Options
 
 ### Signing with a GPG key
