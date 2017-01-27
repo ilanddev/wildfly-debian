@@ -31,7 +31,7 @@ else
 	cd $(WF_DIRECTORY) && dpkg-buildpackage -us -uc
 endif
 
-prepare-source: prepare $(WF_TARBALL_ORIG) ensure-debhelper-and-devscripts-packages-are-installed
+source: prepare $(WF_TARBALL_ORIG) ensure-debhelper-and-devscripts-packages-are-installed
 ifdef GPG_KEY
 	cd $(WF_DIRECTORY) && debuild -S -k$(GPG_KEY)
 else

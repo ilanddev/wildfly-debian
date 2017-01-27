@@ -32,14 +32,14 @@ All generated files, including the `.deb` file, will be placed in the current di
 
 ## Building Sources for Ubuntu PPAs
 
-Set a `PGP_KEY` environment variable or pass it on the command line to `make` as `gpg=`, then use the `prepare-source` target:
+Set a `PGP_KEY` environment variable or pass it on the command line to `make` as `gpg=`, then use the `source` target:
 
     export GPG_KEY="7F5C3FB3"
-    make prepare-source
+    make source
 
 or
 
-    make prepare-source gpg=7F5C3FB3
+    make source gpg=7F5C3FB3
 
 The generated files will be in the current directory:
 
