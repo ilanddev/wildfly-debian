@@ -12,7 +12,7 @@ Section: java
 Priority: optional
 Architecture: all
 Homepage: https://github.com/ilanddev/wildfly-debian
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: oracle-java8-installer | java8-runtime, ${shlibs:Depends}, ${misc:Depends}
 Description: Wildfly Application Server
  WildFly is a flexible, lightweight, managed application runtime that helps
  you build amazing applications.
