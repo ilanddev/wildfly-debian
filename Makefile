@@ -54,7 +54,7 @@ copy: unpack
 $(WF_DIRECTORY)/debian/wildfly.init: copy
 	find $(WF_DIRECTORY) -name wildfly-init-debian.sh -exec cp {} $(WF_DIRECTORY)/debian/wildfly.init \;
 
-prepare: $(WF_DIRECTORY)/debian/wildfly.init
+prepare: $(WF_DIRECTORY)/debian/wildfly.init PPA_VERSION
 	cd $(WF_DIRECTORY) && \
 	dch --create --distribution=$(WF_DISTRIBUTION) --package=wildfly \
 	    --newversion=$(WF_VERSION)-1~ppa$(PPA_VERSION) "packaging wildfly"

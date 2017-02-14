@@ -4,6 +4,24 @@ Debian and Ubuntu Packaging for Wildfly
 
 Originally based on https://github.com/mattthias/wildfly-packaging
 
+## Installing the Wildfly Package via PPA
+
+If the `java8-runtime` virtual package dependency is not already satisfied on the system them you may want to first install the `oracle-java8-installer` package from the `webupd8team/java` ppa:
+
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    # Optionally, pre-accept the Oracle license so you are not prompted to do so during the installation:
+    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+    sudo apt-get install oracle-java8-installer oracle-java8-set-default
+
+Finally, install wildfly:
+
+    sudo add-apt-repository ppa:ilanddev/wildfly
+    sudo apt-get update
+    sudo apt-get install wildfly
+
+This will download and install the `oracle-java8-installer` dependency package first and then install wildfly.
+
 ## Building the Wildfly package
 
 Install prerequisites:
