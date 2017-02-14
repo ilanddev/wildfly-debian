@@ -22,7 +22,7 @@ WF_DIRECTORY = wildfly-$(WF_VERSION)
 WF_DOWNLOAD_URL = http://download.jboss.org/wildfly/$(WF_VERSION)/$(WF_TARBALL)
 WF_DISTRIBUTION := $(or $(distribution),$(WF_DISTRIBUTION),$(shell lsb_release -sc))
 GPG_KEY := $(or $(gpg),$(GPG_KEY))
-PPA_VERSION := $(or $(version),$(WF_VERSION),$(shell cat PPA_VERSION))
+PPA_VERSION := $(or $(version),$(PPA_VERSION),$(shell cat PPA_VERSION))
 
 build: prepare $(WF_TARBALL_ORIG) ensure-debhelper-and-devscripts-packages-are-installed
 ifdef GPG_KEY
