@@ -57,7 +57,7 @@ $(WF_DIRECTORY)/debian/wildfly.init: copy
 prepare: $(WF_DIRECTORY)/debian/wildfly.init
 	cd $(WF_DIRECTORY) && \
 	dch --create --distribution=$(WF_DISTRIBUTION) --package=wildfly \
-	    --newversion=$(WF_VERSION)-0~ppa$(PPA_VERSION) "packaging wildfly"
+	    --newversion=$(WF_VERSION)-1~ppa$(PPA_VERSION) "packaging wildfly"
 
 .PHONY: ensure-debhelper-and-devscripts-packages-are-installed
 ensure-debhelper-and-devscripts-packages-are-installed: /usr/bin/dpkg-buildpackage /usr/bin/dch
