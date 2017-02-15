@@ -22,7 +22,7 @@ WF_DIRECTORY = wildfly-$(WF_VERSION)
 WF_DOWNLOAD_URL = http://download.jboss.org/wildfly/$(WF_VERSION)/$(WF_TARBALL)
 WF_DISTRIBUTION := $(or $(distribution),$(WF_DISTRIBUTION),$(shell lsb_release -sc))
 GPG_KEY := $(or $(gpg),$(GPG_KEY))
-PPA_VERSION = $(shell date +%s)
+PPA_VERSION := $(or $(ppa_version),$(PPA_VERSION),$(shell cat PPA_VERSION))
 
 build: prepare $(WF_TARBALL_ORIG) ensure-debhelper-and-devscripts-packages-are-installed
 ifdef GPG_KEY
@@ -54,10 +54,10 @@ copy: unpack
 $(WF_DIRECTORY)/debian/wildfly.init: copy
 	find $(WF_DIRECTORY) -name wildfly-init-debian.sh -exec cp {} $(WF_DIRECTORY)/debian/wildfly.init \;
 
-prepare: $(WF_DIRECTORY)/debian/wildfly.init
+prepare: $(WF_DIRECTORY)/debian/wildfly.init PPA_VERSION
 	cd $(WF_DIRECTORY) && \
 	dch --create --distribution=$(WF_DISTRIBUTION) --package=wildfly \
-	    --newversion=$(WF_VERSION)-0~ppa$(PPA_VERSION) "packaging wildfly"
+	    --newversion=$(WF_VERSION)-1~ppa$(PPA_VERSION) "packaging wildfly"
 
 .PHONY: ensure-debhelper-and-devscripts-packages-are-installed
 ensure-debhelper-and-devscripts-packages-are-installed: /usr/bin/dpkg-buildpackage /usr/bin/dch
