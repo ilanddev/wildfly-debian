@@ -14,13 +14,11 @@ If the `java8-runtime` virtual package dependency is not already satisfied on th
     echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
     sudo apt-get install oracle-java8-installer oracle-java8-set-default
 
-Finally, install wildfly:
+Install wildfly:
 
     sudo add-apt-repository ppa:ilanddev/wildfly
     sudo apt-get update
     sudo apt-get install wildfly
-
-This will download and install the `oracle-java8-installer` dependency package first and then install wildfly.
 
 ## Building the Wildfly package
 
@@ -41,10 +39,10 @@ This will build the most recently released "Final" version of Wildfly.
 
 All generated files, including the `.deb` file, will be placed in the current directory:
 
-    -rw-r--r--  1 root root 134398972 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916_all.deb
-    -rw-r--r--  1 root root      2216 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916_amd64.changes
-    -rw-r--r--  1 root root      3467 Jan 27 16:52 wildfly_10.1.0.Final-0~ppa1485535916.debian.tar.gz
-    -rw-r--r--  1 root root      1431 Jan 27 16:53 wildfly_10.1.0.Final-0~ppa1485535916.dsc
+    -rw-r--r--  1 root root 134398972 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3_all.deb
+    -rw-r--r--  1 root root      2216 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3_amd64.changes
+    -rw-r--r--  1 root root      3467 Jan 27 16:52 wildfly_10.1.0.Final-1~ppa3.debian.tar.gz
+    -rw-r--r--  1 root root      1431 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3.dsc
     -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly_10.1.0.Final.orig.tar.gz
     -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly-10.1.0.Final.tar.gz
 
