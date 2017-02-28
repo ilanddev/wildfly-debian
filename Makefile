@@ -55,8 +55,8 @@ $(WF_DIRECTORY)/debian/wildfly.init: copy
 	find $(WF_DIRECTORY) -name wildfly-init-debian.sh -exec cp {} $(WF_DIRECTORY)/debian/wildfly.init \;
 
 conffiles: copy
-	find $(WF_DIRECTORY)/domain/ $(WF_DIRECTORY)/standalone/ -type f > $(WF_DIRECTORY)/debian/wildfly.conffiles
-	find $(WF_DIRECTORY)/bin/ -name '*.conf' -o -name '*.properties' >> $(WF_DIRECTORY)/debian/wildfly.conffiles
+	cd $(WF_DIRECTORY) && find domain/ standalone/ -type f > debian/wildfly.conffiles
+	cd $(WF_DIRECTORY) && find bin/ -name '*.conf' -o -name '*.properties' >> debian/wildfly.conffiles
 
 prepare: $(WF_DIRECTORY)/debian/wildfly.init conffiles PPA_VERSION
 	cd $(WF_DIRECTORY) && \
