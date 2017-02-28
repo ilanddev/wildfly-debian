@@ -1,0 +1,9 @@
+/opt/wildfly/standalone/configuration/standalone_xml_history
+/opt/wildfly/standalone/data/content
+/opt/wildfly/standalone/data/kernel
+/opt/wildfly/standalone/data/timer-service-data
+/opt/wildfly/standalone/data/tx-object-store
+/opt/wildfly/standalone/deployments/
+/opt/wildfly/standalone/lib/ext
+/opt/wildfly/standalone/log
+/opt/wildfly/domain/data/content

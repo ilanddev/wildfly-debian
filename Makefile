@@ -54,7 +54,11 @@ copy: unpack
 $(WF_DIRECTORY)/debian/wildfly.init: copy
 	find $(WF_DIRECTORY) -name wildfly-init-debian.sh -exec cp {} $(WF_DIRECTORY)/debian/wildfly.init \;
 
-prepare: $(WF_DIRECTORY)/debian/wildfly.init PPA_VERSION
+conffiles: copy
+	find $(WF_DIRECTORY)/domain/ $(WF_DIRECTORY)/standalone/ -type f > $(WF_DIRECTORY)/debian/wildfly.conffiles
+	find $(WF_DIRECTORY)/bin/ -name '*.conf' -o -name '*.properties' >> $(WF_DIRECTORY)/debian/wildfly.conffiles
+
+prepare: $(WF_DIRECTORY)/debian/wildfly.init conffiles PPA_VERSION
 	cd $(WF_DIRECTORY) && \
 	dch --create --distribution=$(WF_DISTRIBUTION) --package=wildfly \
 	    --newversion=$(WF_VERSION)-1~$(WF_DISTRIBUTION)ppa$(PPA_VERSION) \
