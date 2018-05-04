@@ -6,17 +6,13 @@ Originally based on https://github.com/mattthias/wildfly-packaging
 
 ## Installing the Wildfly Package via PPA
 
-If the `java8-runtime` virtual package dependency is not already satisfied on the system them you may want to first install the `oracle-java8-installer` package from the `webupd8team/java` ppa:
+If the `java8-runtime` virtual package dependency is not already satisfied on the system them you may want to first install the `openjdk-8-jre-headless` package:
 
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update
-    # Optionally, pre-accept the Oracle license so you are not prompted to do so during the installation:
-    echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
-    sudo apt-get install oracle-java8-installer oracle-java8-set-default
+    sudo apt-get install openjdk-8-jre-headless
 
 Install wildfly:
 
-    sudo add-apt-repository ppa:ilanddev/wildfly
+    sudo add-apt-repository ppa:ilanddev/wildfly-12
     sudo apt-get update
     sudo apt-get install wildfly
 
@@ -86,11 +82,11 @@ or
 
 To build a different version, you can either pass the version as a Makefile parameter or use environment variables:
 
-    make version=8.0.0.Final
+    make version=12.0.0.Final
 
 or
 
-    export WF_VERSION=10.0.0.Final
+    export WF_VERSION=12.0.0.Final
     make
 
 The `version` command line parameter takes precendence over the `WF_VERSION` environment variable.
@@ -99,11 +95,11 @@ The `version` command line parameter takes precendence over the `WF_VERSION` env
 
 By default the Makefile will build a debian package for the distribution of the build system. To override this you can:
 
-    make distribution=trusty
+    make distribution=bionic
 
 or
 
-    export WF_DISTRIBUTION=trusty
+    export WF_DISTRIBUTION=bionic
     make
 
 ### Setting Environment Variables for Debian changelog
@@ -120,8 +116,8 @@ All of these configuration options can be maintained in a file that sets the env
 
     # wildfly.env
     set -a
-    WF_DISTRIBUTION="trusty"
-    WF_VERSION="8.0.0.Final"
+    WF_DISTRIBUTION="bionic"
+    WF_VERSION="12.0.0.Final"
     DEBFULLNAME="Your Name"
     DEBEMAIL="youremail@example.com"
     GPG_KEY="7F5C3FB3"
@@ -137,6 +133,6 @@ Build wildfly:
 This should result in the following output during the build:
 
     dpkg-buildpackage: source package wildfly
-    dpkg-buildpackage: source version 8.0.0.Final-1
-    dpkg-buildpackage: source distribution trusty
+    dpkg-buildpackage: source version 12.0.0.Final-1
+    dpkg-buildpackage: source distribution bionic
     dpkg-buildpackage: source changed by Your Name <youremail@example.com>
