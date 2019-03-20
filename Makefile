@@ -13,7 +13,7 @@
 ##   debhelper and devscripts packages 
 ##
 
-WF_CURRENT_VERSION = 12.0.0.Final
+WF_CURRENT_VERSION = 15.0.1.Final
 
 WF_VERSION := $(or $(version),$(WF_VERSION),$(WF_CURRENT_VERSION))
 WF_TARBALL = wildfly-$(WF_VERSION).tar.gz
