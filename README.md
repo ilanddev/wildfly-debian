@@ -12,7 +12,7 @@ If the `java8-runtime` virtual package dependency is not already satisfied on th
 
 Install wildfly:
 
-    sudo add-apt-repository ppa:ilanddev/wildfly-12
+    sudo add-apt-repository ppa:ilanddev/wildfly-15
     sudo apt-get update
     sudo apt-get install wildfly
 
@@ -35,12 +35,14 @@ This will build the most recently released "Final" version of Wildfly.
 
 All generated files, including the `.deb` file, will be placed in the current directory:
 
-    -rw-r--r--  1 root root 134398972 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3_all.deb
-    -rw-r--r--  1 root root      2216 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3_amd64.changes
-    -rw-r--r--  1 root root      3467 Jan 27 16:52 wildfly_10.1.0.Final-1~ppa3.debian.tar.gz
-    -rw-r--r--  1 root root      1431 Jan 27 16:53 wildfly_10.1.0.Final-1~ppa3.dsc
-    -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly_10.1.0.Final.orig.tar.gz
-    -rw-r--r--  2 root root 139025162 Aug 19 00:27 wildfly-10.1.0.Final.tar.gz
+    -rw-r--r--  1 build build      3820 Mar 20 20:29 wildfly_15.0.1.Final-1~xenialppa1.debian.tar.xz
+    -rw-r--r--  1 build build      1770 Mar 20 20:29 wildfly_15.0.1.Final-1~xenialppa1.dsc
+    -rw-r--r--  1 build build      2223 Mar 20 20:29 wildfly_15.0.1.Final-1~xenialppa1_source.build
+    -rw-r--r--  1 build build      2216 Mar 20 20:29 wildfly_15.0.1.Final-1~xenialppa1_source.changes
+    -rw-rw-r--  1 build build       388 Mar 20 20:31 wildfly_15.0.1.Final-1~xenialppa1_source.ubuntu.upload
+    -rw-rw-r--  1 build build       404 Mar 20 20:48 wildfly_15.0.1.Final-1~xenialppa1_source.wildfly-15.upload
+    -rw-rw-r--  2 build build 179449615 Jan  7 00:51 wildfly_15.0.1.Final.orig.tar.gz
+    -rw-rw-r--  2 build build 179449615 Jan  7 00:51 wildfly-15.0.1.Final.tar.gz
 
 ## Building Sources for Ubuntu PPAs
 
@@ -57,9 +59,9 @@ The generated files will be in the current directory:
 
     [...]
     Now signing changes and any dsc files...
-     signfile wildfly_10.1.0.Final-0~ppa1485535653.dsc 7F5C3FB3
+     signfile wildfly_15.0.1.Final-1~xenialppa1.dsc F70956F8
 
-     signfile wildfly_10.1.0.Final-0~ppa1485535653_source.changes 7F5C3FB3
+     signfile wildfly_15.0.1.Final-1~xenialppa1_source.changes F70956F8
 
     Successfully signed dsc and changes files
 
@@ -82,11 +84,11 @@ or
 
 To build a different version, you can either pass the version as a Makefile parameter or use environment variables:
 
-    make version=12.0.0.Final
+    make version=15.0.1.Final
 
 or
 
-    export WF_VERSION=12.0.0.Final
+    export WF_VERSION=15.0.1.Final
     make
 
 The `version` command line parameter takes precendence over the `WF_VERSION` environment variable.
@@ -117,7 +119,7 @@ All of these configuration options can be maintained in a file that sets the env
     # wildfly.env
     set -a
     WF_DISTRIBUTION="bionic"
-    WF_VERSION="12.0.0.Final"
+    WF_VERSION="15.0.1.Final"
     DEBFULLNAME="Your Name"
     DEBEMAIL="youremail@example.com"
     GPG_KEY="7F5C3FB3"
@@ -133,6 +135,6 @@ Build wildfly:
 This should result in the following output during the build:
 
     dpkg-buildpackage: source package wildfly
-    dpkg-buildpackage: source version 12.0.0.Final-1
+    dpkg-buildpackage: source version 15.0.1.Final-1
     dpkg-buildpackage: source distribution bionic
     dpkg-buildpackage: source changed by Your Name <youremail@example.com>
